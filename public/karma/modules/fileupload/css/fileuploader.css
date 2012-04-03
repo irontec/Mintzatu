@@ -1,0 +1,75 @@
+.qq-uploader { position:relative; width: 100%;}
+
+.qq-upload-button {
+    display:block; /* or inline-block */
+    width: 205px; padding: 7px 0; text-align:center;    
+    background:#880000; border-bottom:1px solid #ddd;color:#fff;
+}
+.qq-upload-button-hover {background:#cc0000;}
+.qq-upload-button-focus {outline:1px dotted black;}
+
+.qq-upload-drop-area {
+    position:absolute; top:0; left:0; width:100%; height:100%; min-height: 70px; z-index:2;
+    background:#FF9797; text-align:center; 
+}
+.qq-upload-drop-area span {
+    display:block; position:absolute; top: 50%; width:100%; margin-top:-8px; font-size:16px;
+}
+.qq-upload-drop-area-active {background:#FF7171;}
+
+.qq-upload-list {margin:15px 35px; padding:0; list-style:disc;}
+.qq-upload-list li { list-style:none; margin:0; padding:10px; line-height:12px; font-size:12px; border:1px solid #eee; width:80%; background:#ddd;}
+.qq-upload-list li p.error {
+    border-color:#444;
+    background:#773333;
+    padding:4px;
+    color:#eee;
+}
+
+.qq-upload-list li p.ok {
+    border-color:#444;
+    background:#337733;
+    padding:4px;
+    color:#eee;
+}
+
+.qq-upload-list li p.warn {
+    border-color:#444;
+    background:#ffa200;
+    padding:4px;
+    color:#444;
+}
+
+.qq-upload-list li p.info {
+    border-color:#444;
+    background:#ccc;
+    padding:4px;
+    color:#444;
+}
+
+.qq-upload-list li a.token {
+    color:#fff; 
+    margin:0 15px;
+    padding:4px;
+    border:1px solid #eee;
+    background:#767169;
+}
+
+.qq-upload-list li p.question {
+    padding:10px;
+    color:#eee;
+    border:1px solid #333;
+    color:#333;
+}
+
+
+.qq-upload-file, .qq-upload-spinner, .qq-upload-size, .qq-upload-cancel, .qq-upload-failed-text {
+    margin-right: 7px;
+}
+
+.qq-upload-file {}
+.qq-upload-spinner {display:inline-block; background: url("loading.gif"); width:15px; height:15px; vertical-align:text-bottom;}
+.qq-upload-size,.qq-upload-cancel {font-size:11px;}
+
+.qq-upload-failed-text {display:none;}
+.qq-upload-fail .qq-upload-failed-text {display:inline;}

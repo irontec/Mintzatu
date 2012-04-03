@@ -1,0 +1,474 @@
+table.tablon {
+	table-layout: fixed;
+	background-color: white;
+	width: 100%;
+}
+
+table.tablon tr.over td {
+	background: #E1DCF4;
+}
+
+table.tablon tr.selected td {
+	background: #FFFFB9;
+	color: Black;
+}
+
+table.tablon tbody td {
+	padding: 2px;
+	text-align: left;
+	border-bottom: 1px solid #D4D0C8;
+	border-left: 1px solid #D4D0C8;
+	overflow: hidden;
+}
+
+table.tablon th {
+	padding: 2px;
+	background-color: <?php echo $color_principal; ?>;
+	color: <?php echo $color_titulos_principales; ?>;
+	border-bottom: 1px solid #CBC7B8;
+	border-left: 1px solid #D4D0C8;
+	text-align: left;
+	font-weight: normal;
+	overflow: hidden;
+}
+
+table.tablon th a,table.tablon th a.active,table.tablon th a.hover {
+	color: <?php echo $color_titulos_principales;?>;
+}
+
+table.tablon td.cabecera {
+	padding: 2px;
+	background-color: #ebf3fd;
+	border-bottom: 1px solid #CBC7B8;
+	border-left: 1px solid #D4D0C8;
+	text-align: left;
+	font-weight: normal;
+	width: 20%;
+	overflow: hidden;
+}
+
+#tablonContainer {
+	margin: 0px;
+	padding: 0px;
+}
+
+#tablonContainer div {
+	margin: 0px;
+	padding: 0px;
+}
+
+a.opts {
+	padding-right: 10px;
+}
+
+td.editable input {
+	border: 1px solid #000;
+	width: 90%;
+	padding: 1px;
+}
+
+textarea {
+	border: 1px solid #000;
+	width: 90%;
+	padding: 1px;
+	line-height: 16px;
+	min-height: 84px;
+}
+
+td.editable input.button {
+	border: 0px;
+	background: url(../../../icons/document-save.png) no-repeat;
+	width: 18px;
+	height: 18px;
+	margin-left: 1px;
+	margin-top: 2px;
+	margin-bottom: 0pt;
+	cursor: pointer;
+}
+td.jtime input.button {
+	border: 0px;
+	background: url(../../../icons/document-save.png) no-repeat;
+	width: 18px;
+	height: 18px;
+	margin-left: 1px;
+	margin-top: 2px;
+	margin-bottom: 0pt;
+	cursor: pointer;
+}
+
+td.jdate input.button {
+	border: 0px;
+	background: url(../../../icons/document-save.png) no-repeat;
+	width: 18px;
+	height: 18px;
+	margin-left: 1px;
+	margin-top: 2px;
+	margin-bottom: 0pt;
+	cursor: pointer;
+}
+
+td.editable input.undo {
+	background: url(../../../icons/undo.png) no-repeat;
+}
+
+img.autosaver,img.loader,.undo,.info,.cancel {
+	height: 16px;
+	width: auto;
+	margin-left: 5px;
+	margin-top: 2px;
+	cursor: pointer;
+	display: none;
+}
+
+div.opsSave {
+	display: none;
+}
+div.fright{
+	float: right;
+	width: 40%;
+	max-height: 175px;
+	
+	overflow: auto;
+}
+div.contValor {
+	float: left;
+}
+
+span#autosave {
+	margin-left: 2px;
+}
+
+span#saveAllButton {
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+#backButton {
+	margin-left: 20px;
+}
+
+div.grippie {
+	background: #eee url(../../../icons/grippie.png) no-repeat scroll center
+		2px;
+	border-color: #ddd;
+	border-style: solid;
+	border-width: 0pt 1px 1px;
+	cursor: s-resize;
+	height: 9px;
+	overflow: hidden;
+}
+
+.multiselect {
+	width: 19px;
+}
+
+#optsTablon {
+	list-style: none;
+	margin: 5px 0;
+	padding: 12px 0 0 34px;
+	width: 97%;
+	height: 20px;
+}
+
+.multiOptsTablon {
+	background: transparent url(../../../icons/flechita.png) 10px 0px
+		no-repeat;
+}
+
+
+#optsTablon li {
+	float:left;
+	margin: 0 10px 0 1px ;
+	padding: 0;
+}
+
+#optsTablon li.sep {
+	margin-right: 200px;
+}
+
+#optsTablon li img {
+	margin: 0 4px 0 0;
+}
+
+.tablonClone {
+	display: none;
+}
+
+form#hiddenFields {
+	display: none;
+}
+
+.clear {
+	clear: right;
+}
+
+div.contenedorPaginado {
+	margin:20px auto 0 auto;
+}
+ul.paginado {
+	margin:0;
+	padding:0;
+}
+
+ul.paginado li {
+	list-style: none;
+	font-size:1.5em;
+	margin: 0 3px;
+	padding:0;
+	display:inline;
+}
+
+ul.paginado li.currentPage {
+	color:<?php echo $color_secundario; ?>;
+	font-size:2em;
+	font-weight:bold;
+	
+}
+ul.paginado a {
+	color:<?php echo $color_principal; ?>;
+}
+ul.menuout {
+	display: inline;
+	width: 200px;
+}
+
+ul.menuout li {
+	list-style: none;
+	margin: 0 10px;
+}
+#tablonsearch {
+       /* table-layout: fixed;
+        background-color: white;*/
+        background:#fff;
+        border:5px solid <?php echo $color_primario; ?>;
+        margin:0 0 20px 0;
+        padding:10px;
+        display:none;
+        width:700px;
+}
+
+#tablonsearch tr {
+	        width: 100%;
+}
+#tablonsearch td {
+        padding: 2px;
+        font-weight: normal;
+        width: 200px;
+        overflow: hidden;
+        background-color: #FCFDFD;
+        border:0;
+}
+#tablonsearch td.cabecera {
+        padding: 2px;
+        text-align: left;
+        background-color: #ebf3fd;
+        border:2px solid #ccc;        
+        font-weight: normal;
+        width: 40%;
+        overflow: hidden;
+}
+
+#tablonsearch p {
+        margin: auto;
+        text-align: center;
+}
+
+.actionOpenClose {
+	margin:0px 0 10px 0 !important;
+	text-align:left !important;
+}
+
+input {
+		margin:auto;
+		  width:80%;
+}
+
+input.inputpaginado {
+	width: 50px;
+}
+
+input.botonpaginado {
+	width: 30px;
+}
+
+/**AUTOCOMPLETE**/
+
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 10px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+/**FINAUTOCOMPLETE*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div#timepicker {
+	padding: 2px;
+	border: 1px solid #0B1423;
+	background-color: #B1C3CA;
+	text-align: center;
+	font-size: 1.4em;
+	font-family: 'Trebuchet MS', Verdana, Tahoma, Helvetica, sans-serif;
+	border-bottom: 1px solid #517080;
+	border-right: 1px solid #517080;
+	border-left: 1px solid #C5CFD6;
+	border-top: 1px solid #C5CFD6;
+}
+
+div#timepicker span {
+	padding: 0 2px;
+	cursor: crosshair;
+	color: #192C36;
+}
+
+div#timepicker span:hover {
+	padding: 0 1px;
+	background-color: #D7E0E4;
+	border-top: 1px solid #698DA0;
+	border-left: 1px solid #698DA0;
+	border-right: 1px solid #C5CFD6;
+	border-bottom: 1px solid #C5CFD6;
+}
+
+div#mytimepicker {
+	-moz-border-radius: .3em;
+	padding: 2px;
+	font-size: 1.2em;
+	background-color: steelblue;
+	color: white;
+	border: 1px solid #306B9D;
+	width:80px;
+	margin: -22px 0 0 0;
+}
+
+div#mytimepicker span {
+	padding: 0 4px;
+	margin: 0;
+	cursor: crosshair;
+}
+
+div#mytimepicker span:hover {
+	padding: 0 3px;
+	background-color: #6D9DC6;
+	border: 1px solid #306B9D;
+	-moz-border-radius: .2em;
+}
+
+div.readerbox{
+	width:1000px;
+	max-height:500px;
+	overflow:auto;
+}
+
+div.reader{
+background:#F9F4F4 none repeat scroll 0 0;
+border:1px solid #DEC9C9;
+margin:10px 0 0 10px;
+max-height:400px;
+overflow:auto;
+padding:10px;
+width:920px;
+}
+
+tr.tmpOver{
+	background:#eaeaea none repeat scroll 0 0;
+}
+img.openView{
+	padding: 0 10px 0 0;
+}
+
+
+
+#trans_container{
+	border:1px solid black;
+	min-height:50px;
+	width:23%;
+	background:#d6d6d6;
+	padding:2px;
+}
+#trans_result{
+background:#FFFFFF none repeat scroll 0 0;
+margin:0;
+min-height:25px;
+padding:1px 5px;
+}
+#trans_switcher{
+
+}
+
+#trans_container.absolute_container{
+border:2px solid black;
+min-height:50px;
+position:fixed;
+width:19%;
+}
+
+.translatebutton{
+	background:transparent url(../../../icons/go-top.png) no-repeat scroll 0 0;
+	border:0 none;
+	cursor:pointer;
+	height:18px;
+	margin-bottom:0;
+	margin-left:5px;
+	margin-top:2px;
+	width:18px;
+}

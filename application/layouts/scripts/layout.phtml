@@ -1,0 +1,38 @@
+<?php echo $this->render('burua.phtml'); ?>
+<body>
+    <div id="content">
+        <div id="header">
+            <?php if ($this->flashmezua) :?>
+                <div id="dialog-mezua"><?php echo $this->flashmezua[0]; ?></div>
+            <?php endif;?>
+            <div id="branding"><a href="<?php echo $this->serverUrl($this->baseUrl('/'));?>"><img src="img/logo1.png" alt="mintzatu" /></a></div>
+            <div id="menu">
+                <ul class="tools-ops">
+                    <li><a href="<?php echo $this->url(array(
+                        'controller' => 'orrialdeak',
+                        'action' => 'ikusi',
+                        'orria' => 'zer_da_hau'
+                    ),'',true);?>"><?php echo $this->translate('Honi Buruz'); ?></a></li>
+                    <li><a href="<?php echo $this->url(array(
+                        'controller' => 'lekuak',
+                        'action' => 'bilatu'
+                    ),'',true);?>"><?php echo $this->translate('Lekuak'); ?></echo></a></li>
+                    <li><a href="<?php echo $this->url(array(
+                        'controller' => 'kontaktua'
+                    ), '', true);?>"><?php echo $this->translate('Kontaktua'); ?></a></li>
+                    <li><a href="<?php echo $this->url(array(
+                        'controller' => 'orrialdeak',
+                        'action' => 'ikusi',
+                        'orria' => 'erabilpena'
+                    ),'',true);?>"><?php echo $this->translate('Erabilpena'); ?></a></li>
+                </ul>
+                <?php echo $this->ErabiltzaileMenua(); ?>
+            
+            </div>
+        </div><!-- #header -->
+        <div id="main">
+            <?php echo $this->layout()->content; ?>
+        </div><!-- #main -->
+        <?php echo $this->render('hanka.phtml'); ?>
+    </div><!-- #content -->
+</body>

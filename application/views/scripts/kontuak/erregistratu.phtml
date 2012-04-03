@@ -1,0 +1,13 @@
+<h1>Erregistroa</h1>
+<?php if ($this->form) { ?>
+<div class="form-box">
+    <h2>Erabiltzaile Berria</h2>
+    <?php echo $this->form; ?> 
+</div>
+<?php } 
+if (isset($this->success) && $this->success === true) :
+?>
+<div class="erregistroaOk">
+    Zorionak! Orain Mintzatu sarearen parte zara, begiratu zure posta elektronikoan bidali dizugun posta eta jarraitu bertan agertzen diren pausoak erregistroa bukatzeko. Eskerrikasko zure parte-hartzeagaitik.
+</div>
+<?php endif;?>

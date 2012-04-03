@@ -1,0 +1,39 @@
+
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+
+p.date {
+  color: #ccf;
+}
+
+p.hidden-note{
+     display: none;
+}
+
+p.important {
+    color: red; font-weight: bold;
+}
+
+img.now{
+   float:right;
+}
+
+img.yeah {
+   float:left;
+}
+
+img.border {
+    border: 5px solid #ccc;
+}
+
+ul.special,
+ol.special {
+    color: green;
+}
+

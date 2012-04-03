@@ -1,0 +1,53 @@
+## .htaccess por defecto para karma.
+# - Autenticación mediante MySQL (Importante configurar datos de acceso)
+# - Minimización de los css's y js's
+# - Deniega el acceso a los directorios .svn
+#
+## Si se quiere utilizar autenticación contra MySQL para el directorio Karma:
+	## Configurar este fichero y renombrarlo/copiarlo a .htaccess
+
+	## DEBIAN ETCH ##
+	## wget http://www.mail-archive.com/debian-bugs-rc@lists.debian.org/msg89817/libapache2-mod-auth-mysql_4.3.9-2.1_i386.deb
+	## ó
+	## svn co http://dev2.irontec.com/svn/karma/trunk/dependencias_karma/libapache2-mod-auth-mysql_4.3.9-2.1_i386.deb
+	##
+	## dpkg -i libapache2-mod-auth-mysql_4.3.9-2.1_i386.deb
+	## /DEBIAN ETCH ##
+
+	## DEBIAN > ETCH ##
+	## apt-get install libapache2-mod-auth-mysql
+	## /DEBIAN > ETCH ##
+
+	## COMUN ##	
+	## a2enmod auth_mysql
+	## /etc/init.d/apache2 force-reload
+
+SetEnv DEV_IPS "127.0.0.1|10.10.0.204|62.99.78.6"
+SetEnv DEV_IERROR_LEVEL 3
+
+php_flag magic_quotes_gpc off
+
+AuthBasicAuthoritative Off
+AuthMYSQL on
+AuthMySQL_Authoritative on
+AuthMySQL_DB database_name
+AuthMySQL_Host localhost
+AuthMySQL_User mysql_user
+AuthMySQL_Password mysql_password
+AuthMySQL_Password_Table karma_usuarios
+AuthMySQL_Username_Field login
+AuthMySQL_Password_Field pass
+AuthMySQL_Empty_Passwords off
+AuthMySQL_Encryption_Types Plaintext Crypt_MD5 Crypt_DES
+
+# Standard auth stuff
+AuthType Basic
+AuthName "ZONA PRIVADA"
+Require valid-user
+
+# Make .svn dirs non accesible
+RewriteEngine on
+RewriteRule ^(.*/)?\.svn/ - [F,L]
+
+RewriteRule (.*\.js$) ./jsmin.php?args=$1 [L]
+RewriteRule (.*\.css$) ./cssmin.php?args=$1 [L]

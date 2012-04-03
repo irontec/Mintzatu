@@ -1,0 +1,18 @@
+#gallery{
+clear:right;	
+}
+
+#gallery div.thumb{
+	float:left;
+	margin:8px;
+}
+
+#gallery div.thumb img{
+	border:2px solid #0d0d0d;
+	float:left;
+	padding:2px;
+	cursor:pointer;
+}
+#gallery div.thumb img:hover{
+	opacity:0.7;
+}

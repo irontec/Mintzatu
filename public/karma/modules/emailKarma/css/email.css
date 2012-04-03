@@ -1,0 +1,137 @@
+#emailGeneral{
+	width:700px;
+	position:relative;
+}
+#emailGeneral h1{
+	-moz-border-radius-topleft:10px;
+	-moz-border-radius-topright:10px;
+	background:transparent url(../../../icons/bg_karmaBar.png) repeat-x scroll left top;
+	color:#FFFFFF;
+	font-size:1.3em;
+	margin:0;
+	padding:7px 0;
+	text-align:center;
+	width:100%;
+}
+.emailGeneral{
+	border:1px solid red;
+}
+#tabs{
+	width:700px;
+	position:relative;
+}
+#tabs ul{
+	background:transparent url(../../../icons/bg_tablon_optsTablon.png) repeat-x scroll 0 0;
+	color:#FFFFFF;
+	float:left;
+	font-size:1em;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin-top:0;
+	padding:0 0;
+	text-align:center;
+	width:100%;
+}
+#tabs ul li{
+	float:left;
+	margin: 0 10px;
+	padding: 3px 5px 2px 5px;
+	vertical-align:middle;
+	font-size:1.05em;
+	border-right:1px solid transparent;
+	border-left:1px solid transparent;
+	cursor:pointer;
+}
+#tabs ul li:hover, #tabs ul li.selected {
+	background: transparent url(../../../icons/bg_tablon_optsTablon_hover.png) 0 0 repeat-x;
+	border-right:1px solid #CCC;
+	border-left:1px solid #CCC;
+}
+.tabcontainer{
+	float:left;
+	margin:0;
+	min-height:300px;
+	width:100%;
+}
+
+.u_fields input[type=text]{
+border:1px solid #999999;
+font-size:1.1em;
+height:19px;
+padding:2px 5px 5px;
+width:86%;
+}
+.u_fields select{
+border:1px solid #999999;
+font-size:1.1em;
+height:27px;
+min-width:262px;
+padding:0 0 0 2px;
+width:88%;
+}
+.u_fields textarea{
+font-size:1.1em;
+min-width:262px;
+padding:0 0 0 2px;
+width:90%;
+}
+
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 999999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 10px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+#emailopts{
+	margin:13px 0 !important;
+}
+span.errorspan{
+	color:#CC0000;
+}
+
+h2.errorspan{
+	color:#CC0000;
+}
+.text_contents{
+font-weight:normal;
+margin:0 20px;
+max-height:300px;
+overflow:auto;
+}
+.text_contents p img.tooltip{
+margin:0 5px 0 0;
+vertical-align:middle;
+cursor: pointer;
+}

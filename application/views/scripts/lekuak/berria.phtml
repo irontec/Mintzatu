@@ -1,0 +1,24 @@
+<h1><?php echo $this->translate('Leku Berria'); ?></h1>
+<div id="info"><span><?php echo $this->translate('Sartu beheko kutxan lekuaren helbidea edo herria.')
+    .'</span><br /><span>'
+    .$this->translate('Jarraian mugitu puntutxoa bere posizio errealerarte.')
+    .'</span><br /><span>'
+    .$this->translate('Puntua bere tokian kokatu ondoren, sakatu "Jarraitu" botoia eta bete falta diren datuak.')
+    .'</span></div>';?>
+<div class="form-box">
+    <form action="#" id="mapa-bilatu">
+        <fieldset>
+            <input type="text" size="60" name="helbidea" value="sartu helbidea..." />
+            <input type="submit" value="Bilatu" />
+        </fieldset>
+    </form>
+</div>
+
+<div align="center" id="map" class="main-map"></div>
+
+<div id="lekuBerria">
+    <div class="form-box">
+        <h2><?php echo $this->translate('Lekuaren Datuak')?></h2>
+        <?php echo $this->form;?>
+    </div>
+</div>

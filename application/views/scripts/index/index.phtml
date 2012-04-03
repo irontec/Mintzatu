@@ -1,0 +1,106 @@
+<div id="tier-one">
+    <div class="intro-text">
+        <h1><?php echo $this->translate('Euskal guneak aurkitu Mintzatu bilatzailearekin'); ?></h1>
+        <a href="<?php echo $this->url(array(
+                        'controller' => 'orrialdeak',
+                        'action' => 'ikusi',
+                        'orria' => 'zer_da_hau'
+                    ),'',true);?>" class="link-button"><?php echo $this->translate('Ikasi nola'); ?> &rarr;</a>
+        <a href="" id="panTo" class="link-button"><?php echo $this->translate('Nire Inguruan'); ?></a>
+    </div>
+    <div class="main-map" id="main-map"></div>
+    <br clear="both" />
+    <h2><?php echo $this->translate('Eredu batzuk'); ?></h2>
+	<div id="destacados">
+    	<div class="destacados">
+    		<a href="#" class="pag left"></a>
+    		<a href="#" class="pag right"></a>
+        	<div class="destacados_ul">
+            	<ul id="destacados_footer" class="group">
+            	<?php foreach ($this->kategoriak as $kategoria) : ?>
+                    <li><a href="<?php echo $this->url(array(
+                        'controller' => 'lekuak',
+                        'action' => 'bilatu',
+                        'kat' => $kategoria->getIdKategoria()
+                    ), '', true);?>" class="exmp"><img src="<?php echo $this->url(array(
+                        'controller' => 'lekuak',
+                        'action' => 'kategoria-irudia',
+                        'kategoria' => $kategoria->getUrl(),
+                        'neurria' => 'aktibitatea'
+                    ));?>" /><p class="titulua"><?php echo $kategoria->getIzena(); ?></p></a></li>
+                <?php endforeach; ?>
+            	</ul>
+    		</div>
+    	</div>
+	</div>
+
+
+
+    
+</div><!-- #tier-one -->
+<div id="tier-two">
+<?php if ($this->aktibitatea) : 
+$lekuMapper = new Mappers\Sql\Lekuak;
+$erabilMapper = new Mappers\Sql\Erabiltzaileak;
+$checksMapper = new Mappers\Sql\Checks;
+?>
+    <div class="list-box">
+    <h2><?php echo $this->translate('Azkenak')?></h2>
+        <ul>
+        <?php foreach ($this->aktibitatea as $akt) :?>
+        <li>
+            <ul>
+            <?php $lekua = $lekuMapper->find($akt->getIdLerroa()); ?>
+                <li class="pic"><?php echo $this->KategoriaIrudia($lekua, 'aktibitatea', true); ?></li>
+                <li class="what"><a href="<?php echo $this->url(array(
+                    'controller' => 'lekuak',
+                    'action' => 'ikusi',
+                    'lekua' => $lekua->getUrl()
+                ),'',true);?>"><?php echo $lekua->getIzena(); ?></a> <?php echo $this->translate('leku berria sortu da ').'<strong>'.$lekua->getHerria().'</strong>-(e)n'; ?>
+                </li>
+                <li class="when"><?php echo $this->Noiz($akt->getNoiz()); ?>
+                
+                <br /><span class="mapan" title="Mapan ikusi" data-point="<?php echo $lekua->getIdLekua();?>"></span>
+                </li>
+            </ul>
+        </li>
+        <?php endforeach; ?>
+        </ul>
+
+    </div><!-- .list-box -->
+<?php endif; ?>
+    <div class="deskargatu">
+        <div class="deskarga-options">
+        <h2><?php echo $this->translate('Deskargatu')?></h2>
+            <ul>
+                <li><a href="" class="laster"><img src="img/icon_android.png" /><?php echo $this->translate('Hemen eskuragarri'); ?></a></li>
+                <li><a href="" class="laster"><img src="img/icon_ipad.png" /><?php echo $this->translate('Hemen eskuragarri'); ?></a></li>
+            </ul>
+        </div>
+    </div><!-- .deskargatu -->
+    
+    <div class="deskargatu">
+        <div class="deskarga-options">
+        <h2><?php echo $this->translate('Zabaldu')?></h2>
+            <ul>
+<?php
+$url = 'http://www.facebook.com/sharer.php?u=http://www.mintzatu.com&p[title]=Mintzatu&p[url]=http://www.mintzatu.com&p[images][0] = http://www.mintzatu.com/img/favbig.png&p[summary]=hola+como+estas';
+$windos = '';
+$options = 'toolbar=0, status=0, width=650, height=450';
+?>
+
+
+
+                <li class="fbLI">
+                <a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=Mintzatu&amp;p[url]=http://www.mintzatu.com&amp;p[images][0]=http://www.mintzatu.com/img/logo.png&amp;p[summary]=Sarean+zabaldu','','toolbar=0, status=0, width=650, height=450');" class=""><img src="img/icon_facebook.png"><?php echo $this->translate('Zabaldu'); ?></a>
+                </li>
+                <li class="twitterLI">
+                <a href="https://twitter.com/intent/tweet?button_hashtag=mintzatu&text=Sarean%20zabaldu" class="twitter-hashtag-button" data-size="large" data-url="http://www.mintzatu.com">#mintzatu</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </li>
+                
+            </ul>
+        </div>
+    </div><!-- .deskargatu -->
+
+</div><!-- #tier-two -->

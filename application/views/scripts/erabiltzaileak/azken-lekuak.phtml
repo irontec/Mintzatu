@@ -1,0 +1,27 @@
+<?php if ($chekinak = $this->checks) : 
+$lekuMapper = new Mappers\Sql\Lekuak;
+$erabilMapper = new Mappers\Sql\Erabiltzaileak;
+$checksMapper = new Mappers\Sql\Checks;
+?>
+<div class="list-box">
+<h2><?php echo $this->translate('Azkenak Lekuak')?></h2>
+    <ul>
+    <?php foreach ($chekinak as $check) :?>
+    <li>
+        <ul>
+        <?php $lekua = $lekuMapper->find($check->getIdLekua()); ?>
+            <li class="pic"><?php echo $this->KategoriaIrudia($lekua, 'aktibitatea', true); ?></li>
+            <li class="what"><a href="<?php echo $this->url(array(
+                'controller' => 'lekuak',
+                'action' => 'ikusi',
+                'lekua' => $lekua->getUrl()
+            ),'',true);?>"><?php echo $lekua->getIzena(); ?></a> <?php echo $this->translate('leku berria sortu da ').'<strong>'.$lekua->getHerria().'</strong>-(e)n'; ?>
+            </li>
+            <li class="when"><?php echo $this->Noiz($check->getNoiz()); ?></li>
+        </ul>
+    </li>
+    <?php endforeach; ?>
+    </ul>
+
+</div><!-- .list-box -->
+<?php endif; ?>

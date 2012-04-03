@@ -1,0 +1,68 @@
+.jqi table {
+	text-align:left;	
+	
+}
+
+#nuevosPermisos {
+	margin-top:10px;
+	position:absolute;
+		
+} 
+.perm_windowfade{
+      background-color: #ffffff;
+}
+div.perm_window{
+      position: relative;
+      background-color: #fff; 
+      padding: 10px;
+      width: 850px;
+	  border: 1px solid <?php echo $color_principal; ?>;
+}
+div.perm_window .perm_windowcontainer{
+      background-color: #fff; 
+	  border: 1px solid #000;
+      padding: 5px;
+      font-weight: bold;
+      height: 330px;
+}
+div.subwindo .perm_windowmessage{
+      background-color: #fff; 
+	  padding: 10px;
+}
+div.perm_window .perm_windowbuttons{
+      text-align: center;
+      padding: 5px 0 0 0;
+      clear: both;
+}
+div.perm_window ul {
+	list-style:none;	
+}
+
+div#lista_permisos select{
+	margin-top: 10px;
+	width: 560px;
+}
+div#div_tipos_permiso{
+	width: 560px;
+	padding: 10px;
+	float: left;
+	border-right: 1px solid <?php echo $color_principal; ?>;
+}
+div#tipo_permiso{
+	margin-bottom: 10px;
+}
+div#propiedades_permiso{
+	width: 200px;
+	padding: 20px;
+	float: left
+}
+option.shown{
+	display:block;
+}
+option.hidden{
+	display:none;
+}
+div.cargando{
+	color:#000;
+	font-weight:normal;
+}

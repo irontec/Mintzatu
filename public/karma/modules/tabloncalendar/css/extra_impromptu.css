@@ -1,0 +1,13 @@
+*.jqi table {
+	text-align:left;
+}
+
+*.jqi table th {
+	color: #5263ab;
+	padding: .7em;
+	text-decoration: underline;
+}
+
+*.jqi table td {
+	padding: .5em;
+}

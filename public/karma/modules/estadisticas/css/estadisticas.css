@@ -1,0 +1,50 @@
+#graficaStats {
+	/*float:right;*/
+	margin:0 0 10px 460px !important;
+	background:#f8f8d8;
+	border:1px solid #999;
+}
+
+#containerStats {
+	background:#f8f8d8;
+	padding:10px;
+	margin:0 0 10px 0;
+	border:1px solid #999;
+	width:450px;
+	float:left;
+}
+
+.cabeceraStats {
+	background:#999;
+	color:#fff;
+	padding:10px;
+	margin:0 0 0 0;
+}
+
+dl.stat{	
+	padding:10px;
+	}
+
+dl.stat dt{
+		color:#5ea1be;
+		text-align:right;
+		float:left;
+		padding:8px 0 0 0;
+		width:250px;
+		margin:0px 5px 0 0;
+}
+
+dl.stat dd{
+		color:#000;
+		text-align:left;
+		font-size:2em;		
+		font-weight:bold;		
+		margin:0 0 0 10px;
+
+}
+
+.unidades {
+		color:#000;
+		text-align:left;
+		font-size:0.5em;		
+	}

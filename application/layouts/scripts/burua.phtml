@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='eu'>
+<head>
+<?php
+    if ($this->headTitle) {
+            $this->headTitle()->append($this->headTitle);
+    }
+    $this->headTitle()->append('Mintzatu');
+    echo $this->headTitle()
+        ->setIndent(4)
+        ->setSeparator(' :: ');
+?>
+
+<?php
+    echo $this->headMeta()
+        ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
+        ->setIndent(4);
+?>
+
+<?php
+
+    $gMapsApiKey = 'ABQIAAAAQDe2htSWkE-uCIN6UjbsEhTmwUi3aZi-TZ969RdVqiHuZ3cvuhRvASsHOnSZPx2BQKdHJlMxnrRpAg';
+    $gMapsApiKey = 'ABQIAAAAkXoxPPLiLkGyyxxhTICtzRQPFgEiYVWdZgAgvTL8rQilQclQuhRMVekdbDS2WhgVYonWJ-w-PYezAg';
+    $gMapsApiKey = 'AIzaSyAcH-oYc1eFinil6rykp6IICloKeZRdJt8'; 
+    $gMapsApiKey = 'AIzaSyAcH-oYc1eFinil6rykp6IICloKeZRdJt8';
+
+    $this->headScript()
+        ->prependFile('http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js')
+        ->prependFile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js')
+        ->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+        ->prependFile('http://maps.google.com/maps?file=api&v=2&hl=eu&key=' . $gMapsApiKey)
+        ->appendFile($this->baseUrl('/js/jquery.ui.datepicker-eu.js'))
+        ->appendFile($this->baseUrl('/js/swfobject.js'))
+        ->appendFile($this->baseUrl('/js/karma.embed.js'))
+        ->appendFile($this->baseUrl('/js/jquery.cookie.js'))
+        ->appendFile($this->baseUrl('/js/jquery.tools.min.js'))
+        ->appendFile($this->baseUrl('/js/jquery.scrollTo.js'))
+        ->appendFile($this->baseUrl('/js/mintzatu.functions.js'));
+
+
+    echo $this->headScript()->setIndent(4);
+
+?>
+
+<?php
+    echo $this->headLink()
+        ->headLink(array('rel' => 'favicon','href' => $this->baseUrl('/img/favicon.ico'), 'PREPEND'))
+        ->appendStylesheet($this->baseUrl('/css/jquery-ui-1.8.17.custom.css'), array('screen', 'projection'))
+        ->appendStylesheet($this->baseUrl('/css/style.css'), array('screen', 'projection', 'print'))
+        
+        ->appendStylesheet('http://fonts.googleapis.com/css?family=Quicksand:400,700')
+        ->appendStylesheet('http://fonts.googleapis.com/css?family=Sonsie+One')
+        ->setIndent(4);
+?>
+<link rel="shortcut icon" href="<?php echo $this->baseUrl('/img/favicon.ico'); ?>" />
+<base href='<?php echo $this->serverUrl($this->baseUrl()); ?>/' />
+
+
+</head>

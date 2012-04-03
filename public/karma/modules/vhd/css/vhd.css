@@ -1,0 +1,29 @@
+
+#vhd_div{
+	border:1px solid #444;
+	padding:10px 5px;
+}
+
+.treeopts{
+
+}
+
+.treeopts label{
+    color:#777777;
+vertical-align:top;
+}
+
+.treeopts input{
+vertical-align:top;
+
+}
+
+.treeopts label span{
+display:none;
+}
+
+.treeopts label.wait span { background: url(images/spinner.gif) 3px top no-repeat;
+padding:0 12px 0 3px;
+display:inline;
+}
+

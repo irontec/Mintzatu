@@ -1,0 +1,123 @@
+<?php $erabilMapper = new Mappers\Sql\Erabiltzaileak;?>
+<?php if ($this->lekua) : ?>
+    <?php if ($this->mezua) : ?>
+        <div id="dialog-mezua"><?php echo $this->mezua; ?></div>
+    <?php endif; ?>
+    <div id="lekuIrudi" class="kategoriaIrudia">
+        <?php echo $this->KategoriaIrudia($this->lekua, 'lekua', true); ?>
+    </div>
+    <div class="kategoriaTestua">
+        <h2 class="place"><?php echo $this->lekua->getIzena();?></h2>
+        <h3><?php echo $this->lekua->getKategoriak()->getIzena();?></h3>
+        <p class="deskribapena"><?php echo $this->lekua->getDeskribapena(); ?></p>
+    </div>
+    <br clear="both" />
+    
+    <div id="leku-left">
+    
+    <div class="main-map" id="leku-map"></div>
+    <?php if ($this->logeatua) : ?>
+        <?php echo $this->LekuBotoiak($this->lekua); ?>
+        <div class="hidden form-box" id="irudiaIgoForm">
+            <?php echo $this->irudiaForm; ?>
+        </div>
+    <?php endif;?>
+    <?php echo $this->HemenOrain($this->lekua->getIdLekua()); ?>
+    
+    
+    <?php if ($this->chekinak) : ?>
+    <div class="list-box">
+        <h2>Aktibitatea</h2>
+        <ul>
+            <?php foreach ($this->chekinak as $chekin) :?>
+            <li>
+                <ul>
+                    <?php $erabil = $erabilMapper->find($chekin->getIderabiltzaile());?>
+                    <li class="pic"><?php echo $this->ErabiltzaileIrudia($erabil->getErabiltzailea(),'txikia', true); ?></li>
+                    <li class="what"><?php echo $erabil->getIzena().' '.$this->translate('hemen egon da.')?></li>
+                    <li class="when"><?php echo $this->Noiz($chekin->getNoiz()); ?></li>
+                </ul>
+            </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+    <?php endif; ?>
+    
+    
+    </div>
+    
+    
+    <?php if ($this->nagusia):?>
+    <div class="deskargatu nagusia">
+        <div class="deskarga-options">
+            <div class="pic">
+                <?php echo $this->ErabiltzaileIrudia($this->nagusia,'txikia', true); ?>
+                <h3><?php echo $this->translate('Nagusia')?></h3>
+                <span><?php echo $this->nagusiaTimes ?> <?php echo $this->translate('aldiz hemen')?></span>
+            </div>
+            
+        </div>
+    </div>
+    <?php else: ?>
+    <div class="deskargatu">
+        <div class="deskarga-options">
+            <h2><?php echo $this->translate('Nagusia')?></h2>
+            <p><?php echo $this->translate('Leku honetan ez dago nagusirik. Hemen bazaude, bihurtu nagusia orain!')?></p>
+            <?php if ($this->logeatua) : ?>
+            <a href="" class="chekcIn link-button"><?php echo $this->translate("Hemen Nago")?></a>
+            <?php else: ?>
+            <a href="<?php echo $this->url(array('controller'=>'kontuak', 'action'=>'sartu'), null, true);?>" class="link-button"><?php echo $this->translate("Saioa Hasi")?></a>
+            <?php endif; ?>
+            
+        </div>
+    </div>
+    <?php endif; ?>
+    <div class="deskargatu">
+        <div class="deskarga-options">
+        <h2><?php echo $this->translate('Zabaldu')?></h2>
+            <ul>
+<?php
+
+$lUrl = $this->serverUrl($this->baseUrl($this->url(array(
+        'controller' => 'lekuak',
+        'action' => 'ikusi',
+        'lekua' => $this->lekua->getUrl()
+),'',true)));
+$imgURL = $this->serverUrl($this->baseUrl($this->url(array(
+        'controller' => 'lekuak',
+        'action' => 'kategoria-irudia',
+        'kategoria' => $this->lekua->getKategoriak()->getUrl(),
+        'neurria' => 'lekua'
+),'',true)));
+$windos = '';
+$options = 'toolbar=0, status=0, width=650, height=450';
+$url = 'http://www.facebook.com/sharer.php?s=100';
+$url.= '&amp;p[title]=' . $this->title . ' :: Mintzatu';
+$url.= '&amp;p[url]='.$lUrl;
+$url.= '&amp;p[images][0]=http://www.mintzatu.com/img/logo.png';
+$url.= '&amp;p[images][1]=' . $imgURL;
+$url.= '&amp;p[summary]=Sarean Zabaldu.';
+
+$twtext = $this->title . ' ' . 'sarean%20zabaldu. ';
+
+?>
+
+
+                <li class="fbLI">
+                <a href="javascript: void(0);" onclick="window.open('<?php echo $url?>','','toolbar=0, status=0, width=650, height=450');" class=""><img src="img/icon_facebook.png"><?php echo $this->translate('Zabaldu'); ?></a>
+                </li>
+                <li class="twitterLI">
+                <a href="https://twitter.com/intent/tweet?button_hashtag=mintzatu&text=<?php echo $twtext;?>" class="twitter-hashtag-button" data-size="large" data-url="<?php echo $lUrl; ?>">#mintzatu</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </li>
+                
+            </ul>
+        </div>
+    </div><!-- .deskargatu -->
+    
+    
+    <span id="urlLeku" class="hidden"><?php echo $this->lekua->getUrl(); ?></span>
+    
+<?php else : ?>
+    <p id="warning"><?php echo $this->translate('Leku hau ez da existitzen.'); ?></p>
+<?php endif;?>

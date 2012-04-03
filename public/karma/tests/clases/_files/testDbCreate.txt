@@ -1,0 +1,7 @@
+create database karmaTestDb;
+grant all privileges on karmaTestDb.* to karmaTestUser@localhost identified by 'karmaTestPass';
+use karmaTestDb;
+create table test1 (
+    idTest1 mediumint(8) unsigned not null auto_increment primary key,
+    testCol1 varchar(255)
+)engine=innodb default charset utf8;

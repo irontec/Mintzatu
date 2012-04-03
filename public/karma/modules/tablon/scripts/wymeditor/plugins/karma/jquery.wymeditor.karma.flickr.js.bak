@@ -1,0 +1,176 @@
+/*
+ * WYMeditor : what you see is What You Mean web-based editor
+ * Copyright (c) 2005 - 2009 Jean-Francois Hovinne, http://www.wymeditor.org/
+ * Dual licensed under the MIT (MIT-license.txt)
+ * and GPL (GPL-license.txt) licenses.
+ *
+ * For further information visit:
+ *        http://www.wymeditor.org/
+ *
+ * File Name:
+ *        jquery.wymeditor.fullscreen.js
+ *        Fullscreen plugin for WYMeditor
+ *
+ * File Authors:
+ *        Luis Santos (luis.santos a-t openquest dotpt)
+ */
+
+//Extend WYMeditor
+WYMeditor.editor.prototype.karma_flickr = function(o) {
+  var wym = this;
+
+ //construct the button's html
+  var html = "<li class='wym_tools_karma_flickr'>"
+         + "<a name='Flickr' href='#'>"
+         + "Flickr"
+         + "</a></li>";
+
+  //add the button to the tools box
+  jQuery(wym._box)
+    .find(wym._options.toolsSelector + wym._options.toolsListSelector)
+    .append(html);
+
+  //handle click event
+    jQuery(wym._box).find('li.wym_tools_karma_flickr a').click(function() {
+      var user = "27659958%40N06";
+    	var api = "ca1a4f751187e54eca0594ab93482738";
+    	var count = "5";
+    	var index = "1";
+    	var o_wym = wym;
+					
+		$.getScript("http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id="+ user +"&api_key="+ api +"&per_page="+ count +"&page="+ index +"&format=json&jsoncallback=karma_flickr_callback");
+		karma_flickr_callback = function(data)
+		{
+			var fotos = '<table id="flickr"><caption>Fotos de Flickr</caption><tbody>';
+			var total = data.photos.pages;
+			var current = data.photos.page;
+			for(var i in data.photos.photo)
+			{
+				var html = 'http://farm'+ data.photos.photo[i].farm +'.static.flickr.com/'+ data.photos.photo[i].server +'/'+ data.photos.photo[i].id +'_'+ data.photos.photo[i].secret;
+				//fotos += '<tr><td><input name="flickr" type="checkbox" id="'+ data.photos.photo[i].id +'" value='+ html +' class="flickr" /></td>';
+				fotos += '<tr id="'+ data.photos.photo[i].id +'"><td><a href="#" id="'+ data.photos.photo[i].id +'"><img src="'+ html +'_s.jpg" /></a></td>';
+				fotos += '<td style="width:300px;">'+ data.photos.photo[i].title +'</td></tr>';
+			}
+			fotos += '</tbody></table>';
+			fotos += '<input id="anterior" type="submit" value="Anterior" />';
+			fotos += '<input id="siguiente" type="submit" value="Siguiente" />';
+			fotos += '<input id="atras" type="submit" value="Atras" />';
+			console.log(total+'----'+current);
+			
+	    	$.prompt(fotos,{
+	    		buttons: 
+	    		{
+	    			Añadir: true,
+	    			Cancelar: false
+	    		},
+	    		loaded:function()
+	    		{
+	    			$("#siguiente").hide();
+	    			$("#anterior").hide();
+	    			$("#atras").hide();
+	    			if(current < total){
+	    				$("#siguiente").show();
+	    			}
+					
+					karma_flickr_next = function(data)
+	    			{
+	    				var fotos;
+	    				for(var i in data.photos.photo)
+						{
+							var html = 'http://farm'+ data.photos.photo[i].farm +'.static.flickr.com/'+ data.photos.photo[i].server +'/'+ data.photos.photo[i].id +'_'+ data.photos.photo[i].secret;
+							//fotos += '<tr><td><input name="flickr" type="checkbox" id="'+ data.photos.photo[i].id +'" value='+ html +' class="flickr" /></td>';
+							fotos += '<tr id="'+ data.photos.photo[i].id +'"><td><a href="#" id="'+ data.photos.photo[i].id +'"><img src="'+ html +'_s.jpg" /></a></td>';
+							fotos += '<td style="width:300px;">'+ data.photos.photo[i].title +'</td></tr>';
+							
+						}
+						fotos += '</tbody></table>';
+						var numElems = ($("#flickr tr").length)-1;
+						$("#flickr tr").each(function(i) {
+							$(this).slideUp(function(){$(this).remove();});
+							if (i == numElems) {
+								$(fotos).hide().appendTo($("#flickr tbody")).slideDown();
+							} 
+							
+						});
+						if(current < total)
+						{
+							$("#siguiente").show();
+						}	
+						else
+						{
+							$("#siguiente").hide();
+						}
+						if(current > 1)
+						{
+							$("#anterior").show();
+						}
+						else
+						{
+							$("#anterior").hide();
+						}
+					}
+	    			$("#siguiente:input").click(function(){
+		    			current ++;
+		    			$.getScript("http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id="+ user +"&api_key="+ api +"&per_page="+ count +"&page="+ current +"&format=json&jsoncallback=karma_flickr_next");
+		    			
+	    			});
+	    			$("#anterior:input").click(function(){
+		    			current --;
+		    			$.getScript("http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id="+ user +"&api_key="+ api +"&per_page="+ count +"&page="+ current +"&format=json&jsoncallback=karma_flickr_next");
+		    			
+	    			});
+	    			$("#atras:input").click(function(){
+	    				if(fotos.indexOf("<tbody>")){
+	    					console.log(fotos.indexOf("<tbody>"));
+	    				}
+	    			});
+	    			$("#flickr a").click(function(){
+	    				$("#atras").hide();
+	    				$("#siguiente").hide();
+	    				$("#anterior").hide();
+	    				var currentId = $(this).attr('id');
+	    				$.getScript("http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key="+ api +"&photo_id="+ currentId +"&format=json&jsoncallback=karma_flickr_sizes");
+	    				karma_flickr_sizes = function(data)
+						{
+							var sizes;
+							sizes = '<tr style="display:run-in;"><td></td><td>';
+							for(var a in data.sizes.size)
+							{
+								sizes += '<input type="radio" name="'+ currentId +'" value="'+ data.sizes.size[a].source +'">'+ data.sizes.size[a].label +' '+ data.sizes.size[a].height +'x'+ data.sizes.size[a].width + '<br />'; 
+							}
+							sizes += '</td></tr>';
+					 		
+							var Elems = ($("#flickr tr[id!="+ currentId +"]").length)-1;
+							$("#flickr tr[id!="+ currentId +"]").each(function(i) {
+								$(this).slideUp(function(){$(this).remove();});
+								if (i == Elems) {
+					 				$(sizes).hide().appendTo($("#flickr tbody")).slideDown();
+								} 
+							});
+							$("#atras").show();		
+						}
+	    			});					
+
+	    		},
+	    		callback:function(v,m)
+	    		{
+	            if(v==false) {
+	            	$.prompt.close();
+	    			// No guardar
+	    			} else {
+	    				var foto = '';
+	      			$(':radio:checked',m).each(function(i){
+							foto += '<img src="'+$(this).val()+'" class="flickr" />';   				
+	      			});
+						if(foto != ''){     				
+		    				o_wym.insert(foto);
+	    				}
+						$.prompt.close();
+	    			}
+	    		}
+	    	});
+			
+		}
+    return;
+    });
+};

@@ -1,0 +1,30 @@
+<?php if ($this->sartu) { 
+    if ($this->erroreak){ 
+        ?>
+        <div id="erroreak">
+            <ul>
+                <?php foreach ($this->erroreak as $errorea): ?>
+                <li><?php echo $errorea; ?></li>
+                <?php endforeach;?>
+            </ul>
+        </div>
+<?php } ?>
+<h1><?php echo $this->translate('Sartu'); ?></h1>
+<p><?php echo $this->translate('Sartzeko erabiltzaile izena edo posta elektronikoa erabili ditzazkezu.');?></p>
+<div class="form-box">
+        <?php echo $this->sartu; ?>
+        <div class="form-buttons">
+        	
+<!-- 			<div class="fb-login-button">Facebook bidez Sartu</div> -->
+            <a href="<?php echo $this->url(array(
+                'controller' => 'kontuak',
+                'action' => 'ahaztu'
+            )); ?>" class="form-option"><?php echo $this->translate('Pasahitza Berreskuratu'); ?></a>
+            <a href="<?php echo $this->url(array(
+                'controller' => 'kontuak',
+                'action' => 'erregistratu'
+            )); ?>" class="form-option"><?php echo $this->translate('Izena Eman'); ?></a>
+        </div>
+</div>
+<?php }
+

@@ -1,0 +1,18 @@
+<?php if ($this->jabea) :?>
+    <?php if ($this->lekua) : ?>
+        <h2 class="place"><?php echo $this->lekua->getIzena().' '.$this->translate('aldatu');?></h2>
+        <div id="info"><span><?php echo $this->translate('Formulakiko datu denak aldatu ditzakezu, baita mapako puntua bere toki egokira eraman.')?></span></div>
+        <div class="main-map" id="lekuedit-map"></div>
+        <?php if ($this->form): ?>
+        <div class="form-box">
+            <?php echo $this->form; ?>
+        </div>
+        <?php endif;?>
+        <span id="urlLeku" class="hidden"><?php echo $this->lekua->getUrl(); ?></span>
+    <?php else : ?>
+        <div id="warning"><span><?php echo $this->translate('Leku hau ez da existitzen.'); ?></span></div>
+    <?php endif;?>
+<?php else:?>
+        <div id="warning"><span><?php echo $this->translate('Ez duzu baimenik hona sartzeko.'); ?></span></div>
+<?php endif;?>
+    

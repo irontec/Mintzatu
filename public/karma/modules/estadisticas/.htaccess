@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule dst.xml dst.php
+RewriteRule queue.xml queue.php
+

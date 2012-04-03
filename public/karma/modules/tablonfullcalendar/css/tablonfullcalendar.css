@@ -1,0 +1,205 @@
+.calendarOptionsBox{
+
+}
+
+
+.calendarOptionsBox p{
+	text-align:right;
+}
+.calendarOptionsBox select{
+	border:1px solid #BBBBBB;
+	width:160px;
+	margin:0 5px;
+}
+
+.calendarOptionsBox input{
+	border:1px solid #BBBBBB;
+	width:130px;
+}
+
+
+.calendarContainer{
+	border:1px solid #BBBBBB;
+	min-height:695px;
+}
+
+ul.calendarMenu {
+list-style-type:none;
+margin:5px;
+padding:0;
+width:150px;
+}
+
+ul.calendarMenu li{
+	display:inline;
+	margin: 0 3px;
+}
+
+div.monthBox{
+	float:left;
+	width:369px;
+}
+div.monthBigBox{
+	float:left;
+	width:100%;
+}
+
+table.monthTable {
+	border-collapse:collapse;
+	float:left;
+	margin:11px;
+	position:relative;
+	text-align:center;
+	width:347px;
+}
+
+table.monthTable.BigTable {
+	margin:11px 5%;
+	position:relative;
+	text-align:center;
+	width:85%;
+}
+
+
+table.monthTable tr{
+
+}
+table.monthTable tr.princ td{
+	background:#bfbfbf;
+}
+span.monthName{
+	float:left;
+	width:85%;
+}
+a.monthopt{
+	float:right;
+}
+
+table.monthTable tr.week td{
+	background:#acacac;
+}
+table.monthTable tr{
+
+}
+table.monthTable td{
+	border:1px solid #000;
+	background:#fff;
+}
+table.monthTable td.nmonth a, table.monthTable td.pmonth a{
+	color:#777;
+}
+table.monthTable td.today{
+	font-weight:bold;
+	background:#ddd;
+}
+
+table.monthTable td a{
+	color:#000;
+}
+
+table.monthTable.BigTable td.month,table.monthTable.BigTable td.pmonth,table.monthTable.BigTable td.nmonth{
+	height:90px;
+	width:14%;
+}
+
+
+
+ul.events{
+margin:4px 0 0;
+max-height:70px;
+overflow:auto;
+padding:0 0;
+text-align:left;
+}
+ul.events li{
+	border-bottom:1px dashed;
+height:17px;
+margin:0 0 0;
+overflow:hidden;
+width:100%;
+
+}
+table.monthTable.BigTable td{
+	vertical-align:top;
+}
+table.monthTable.BigTable td a {
+background:#EFEFEF none repeat scroll 0 0;
+border-bottom:1px solid #7E7E7E;
+display:block;
+margin:0;
+padding:0;
+
+}
+
+
+table.monthTable td.hasEvents{
+	background:#A6A6E6;
+}
+
+
+
+
+span.dateinfo, span.dateinfo2{
+	position:relative;
+	float:left;
+	width:100%;
+	font-size:0.80em;
+	font-style:italic;
+	border-bottom:1px solid #eee;
+	margin:0 0 2px 0;
+}
+span.dateinfo2{
+
+}
+.eventBox{
+	cursor:pointer;
+height:16px;
+width:100%;
+overflow:hidden;
+}
+
+
+#cursortooltip{
+	padding:5px;
+	border:1px solid #000;
+	height:60px;
+	width:150px;
+	text-align:center;
+	opacity:0.75;
+}
+
+#tot, #fromt{
+	font-weight:bolder;
+}
+
+#tablonwrapper{
+	border:2px solid #555;
+	float:left;
+	position:fixed;
+	top:106px;
+	z-index:1000;
+	width:76%;
+	background:#eee;
+}
+#tablonwrapper .title{
+float:left;
+font-size:1.2em;
+font-weight:bold;
+padding:5px;
+text-align:center;
+width:90%;
+}
+#wrclose{
+	float:right;
+	cursor:pointer;
+}
+
+#tabloncale tr td{
+	text-align:center;
+	vertical-align:top;
+}
+
+#addEntry{
+	display:block;
+margin:7px;
+}

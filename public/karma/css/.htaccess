@@ -1,0 +1,2 @@
+PHP_value auto_prepend_file ieCheck.php
+AddType application/x-httpd-php	.css

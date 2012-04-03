@@ -1,0 +1,69 @@
+<?php if ($this->orria) :?>
+<h1><?php echo $this->orria->getTitulua(); ?></h1>
+
+	<?php if($this->estadistikak) : ?>
+	<div id="erabilpena">
+		<?php foreach ($this->estadistikak as $zer => $lerroa) :
+			switch ($zer) {
+				case 'erabiltzaileKop': ?>
+					<h2><?php echo $this->translate('Altan dauden Erabiltzaile Kopurua: ') ?></h2>
+					<div class="stat">
+					<?php echo $lerroa; ?>
+					</div>
+					<?php break;
+				case 'checkAzkenHilean': ?>
+					<h2><?php echo $this->translate('Azken hilean egindako Check-in kopurua: ') ?></h2>
+					<div class="stat">
+					<?php echo $lerroa; ?>
+					</div>
+					<?php break;
+				case 'checkGuztira' : ?>
+					<h2><?php echo $this->translate('Guztira egin diren Check-inen kopurua: ') ?></h2>
+					<div class="stat">
+					<?php echo $lerroa; ?>
+					</div>
+					<?php 
+					break;
+                case 'lekuKategoriko' : ?>
+                    <h2><?php echo $this->translate('Leku kopurua kategoriako: ')?></h2>
+                    <div class="orria">
+                    	<ul>
+                    	<?php foreach ($lerroa as $key => $value ): ?>
+                    		<li>
+                    			<div class="kategoria">
+                    			<a href="<?php echo $this->url(array(
+                                    'controller' => 'lekuak',
+                                    'action' => 'bilatu',
+                                    'kat' => $value['id']
+                                ), '', true);?>">
+                    			<img src="<?php echo $this->url(array(
+                    			    'controller' => 'lekuak',
+                    			    'action' => 'kategoria-irudia',
+                					'kategoria' => $value['url'],
+                					'neurria' => 'lekua'
+                    			));?>" />
+                    			<h3><?php echo $key?></h3></a>
+                    			<p><?php echo $value['zenbat']; ?></p>
+                    			</div>
+                    		</li>
+                		<?php endforeach; ?>
+                    	</ul>
+                  	</div>
+                	<?php break; 
+            	case 'bisitak': ?>
+					<h2><?php echo $this->translate('Bisita kopurua guztira: ') ?></h2>
+					<div class="stat">
+					<?php echo $lerroa; ?>
+					</div>
+					<?php break;
+				default:
+					break;
+			}
+		endforeach; ?>
+	</div>
+	<?php else: ?>
+	<div id="orrialdea" class="orria">
+    	<?php echo $this->orria->getEdukia(); ?>
+    </div>
+    <?php endif; ?>
+<?php endif;?>

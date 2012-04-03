@@ -1,0 +1,27 @@
+#newMenuUl{
+    background:#fff url(../karma/icons/bg_menu_selected_green.png) top left no-repeat;
+}
+#quickMenuUl {
+    background:#fff url(../karma/icons/bg_menu_selected_green.png) top left no-repeat;
+}
+#newMenuUl  {
+    background:#fff url(../karma/icons/bg_menu_selected_green.png) top left no-repeat;
+}
+#newMenuUl .selected, #newMenuUl .selected:hover {
+    
+    background:#fff url(../karma/icons/bg_menu_selected_green.png) top left no-repeat;
+}
+#quickMenuUl .selected, #quickMenuUl .selected:hover {
+    
+    background:#fff url(../karma/icons/bg_menu_selected_green.png) top left no-repeat;
+}
+
+
+
+#main h1{
+    background:transparent url(../karma/icons/bg_h1_green.png) top left repeat-x; 
+}
+#mainHeader h1 {
+    background:transparent url(../karma/icons/bg_h1_green.png) top left repeat-x; 
+}
+

@@ -1,0 +1,19 @@
+<h1><?php echo $this->translate('Pasahitza Berreskuratu'); ?></h1>
+<?php 
+if ($this->form) {
+    if ($this->erroreak){ ?>
+        <div id="warning">
+            <ul>
+                    <li><?php echo $this->erroreak; ?></li>
+            </ul>
+        </div>
+<?php } ?>
+    <div class="form-box">
+    <?php echo $this->form; ?>
+    </div>
+<?php } 
+if ($this->success === true) { ?>
+    <div id="info">
+        <p><?php echo $this->translate('Mezu bat bidali dizugu zure helbidera, begiratu bertan eta jarraitu argibideak pasahitza berreskuratzeko.')?></p>
+    </div>
+<?php } ?>

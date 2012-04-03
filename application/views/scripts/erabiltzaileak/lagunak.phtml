@@ -1,0 +1,61 @@
+<?php if (!$this->disableSearch) :?>
+
+
+    <?php if ($this->jabea) :?>
+    <h1><?php echo $this->translate('Zure Lagunak'); ?></h1>
+    <?php else: ?>
+    <h1><?php printf($this->translate('%1$s-(r)en Lagunak'), $this->profilekoPertsona->getIzena()); ?></h1>
+    <?php endif; ?>
+    <form id="lagunBilaketa" action="<?php echo $this->url(array(
+        'controller' => 'erabiltzaileak',
+        'action' => 'bilatu'
+    ),'',true);?>" method="get"><label for="lagunak"></label><input type="text" name="pertsona" class="" id="pertsona" value="lagunak bilatu">
+    </form>
+    <?php if ($eskaerak = $this->eskaerak):?>
+    <div class="list-box">
+        <h2><?php echo $this->translate('Lagun Eskaerak'); ?></h2>
+        <p><?php echo $this->translate('Hurrengo pertsonak zure lagun izan nahi dute:'); ?></p>
+        <ul>
+            <?php foreach ($eskaerak as $idErlazio => $pertsona): ?>
+            <li>
+                <ul>
+                <li class="pic"><?php echo $this->ErabiltzaileIrudia($pertsona->getErabiltzailea(),'txikia', true); ?></li>
+                <li class="what"><?php echo '<span id="izena"><a href="'.$this->url(array(
+                    'controller' => 'erabiltzaileak',
+                    'action' => 'profila',
+                    'erabiltzailea' => $pertsona->getErabiltzailea()
+                ),'', true).'">'.utf8_encode($pertsona->getIzena().' '.$pertsona->getAbizenak()).'</a></span>'; ?></li>
+                <li class="when"><?php echo $this->LagunBotoiak($idErlazio, false, $this->jabea); ?></li>
+                </ul>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php endif; ?>
+
+<?php endif; ?>
+
+<?php if ($lagunak = $this->lagunak) : ?>
+<div class="list-box">
+    <h2><a id="lagunZerrenda" href="<?php echo $this->url(array(
+                        'controller' => 'erabiltzaileak',
+                        'action' => 'lagunak',
+                        'erabiltzailea' => $this->profilekoPertsona->getErabiltzailea()
+                    ),'',true);?>"><?php echo $this->translate('Lagunen Zerrenda'); ?></a></h2>
+    <ul>
+    <?php foreach ($lagunak as $idErlazio => $laguna) : ?>
+    <li>
+        <ul>
+        <li class="pic"><?php echo $this->ErabiltzaileIrudia($laguna->getErabiltzailea(),'txikia', true); ?></li>
+        <li class="what"><?php echo '<span id="izena"><a href="'.$this->url(array(
+                'controller' => 'erabiltzaileak',
+                'action' => 'profila',
+                'erabiltzailea' => $laguna->getErabiltzailea()
+            ),'', true).'">'.utf8_encode($laguna->getIzena().' '.$laguna->getAbizenak()).'</a></span>'; ?></li>
+        <li class="when"><?php echo $this->LagunBotoiak($idErlazio, false, $this->jabea, $this->profilekoPertsona); ?></li>
+        </ul>
+    </li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

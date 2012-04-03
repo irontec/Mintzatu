@@ -1,0 +1,52 @@
+<?php if ($this->erabiltzailea) :
+    $erabil = $this->erabiltzailea; ?>
+<h1>Profila</h1>
+<div class="list-box">
+    <div class="profile">
+        <?php if ($erabil->getIrudiIzena()) : ?>
+        <div class="profile-pic">
+            <?php echo $this->ErabiltzaileIrudia($erabil->getErabiltzailea(),'profila'); ?>
+        </div>
+        <?php endif; ?>
+        <div class="profile-info">
+            <ul>
+                <li class="name"><?php echo utf8_encode($erabil->getIzena() . ' ' . $erabil->getAbizenak()); ?></li>
+                <li class="town"><?php echo $erabil->getHerria(); ?></li>
+                <?php if ($erabil->getDeskribapena()) :?>
+                <li class="desc"><?php echo utf8_encode($erabil->getDeskribapena()); ?></lis>
+                <?php endif; ?>
+                <?php if ($erabil->getFacebook() || $erabil->getTwitter()) :?>
+                    <?php if ($erabil->getFacebook()): ?>
+                        <li class="social"><a href="http://www.facebook.com/<?php echo $erabil->getFacebook(); ?>"><?php echo $erabil->getFacebook(); ?></a></li>
+                    <?php endif;?>     
+                    <?php if ($erabil->getTwitter()): ?>
+                        <li class="social"><a href="http://www.twitter.com/<?php echo str_replace('@','',$erabil->getTwitter()); ?>">@<?php echo str_replace('@','',$erabil->getTwitter()); ?></a></li>
+                    <?php endif;?> 
+                <?php endif; ?>
+            </ul>
+        </div>
+        <div id="lagunEgin">
+            <?php echo $this->LagunBotoiak(false, $erabil->getIdErabiltzaile()); ?>
+        </div>
+    </div>
+</div>
+	<div class="list-box sariak">
+	<h2>Sariak</h2>
+    <ul>
+	<?php foreach($this->sariak as $izena => $datuak): ?>    
+    <li>
+        <ul>
+        <li class="pic">
+        	<img class="badge" src="<?php echo $this->baseUrl('/img/'.$datuak['irudia']); ?>" />
+        </li>
+        <li class="what">
+        	<span id="izena"><?php echo $this->translate($datuak['titulua'])?></span><br />
+        	<span id="desk"><?php echo $this->translate($datuak['mezua'])?></span>
+        </li>
+        </ul>
+    </li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+
+<?php endif; ?>

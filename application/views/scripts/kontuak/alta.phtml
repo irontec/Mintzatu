@@ -1,0 +1,34 @@
+<?php
+if ($this->ezezaguna === true): ?>
+    <div id="warning">
+        <p><?php echo $this->translate('Zerbait txarto joan da, ziurtatu esteka ondo idatzia dagoela eta saiatu berriro.')?></p>
+    </div>
+<?php 
+else:
+    if ($this->aktibatua === true): ?>
+        <div id="warning">
+            <p>Kontu hau aktibatua dago iada. <a href="<?php echo $this->url(array(
+                    'controller' => 'kontuak',
+                    'action' => 'sartu',
+                ), '', true); ?>">Saioa Hasi</a></p>
+        </div>  
+<?php
+    else:  
+        if ($this->success === true) :
+            $erabiltzailea = $this->erabiltzailea; ?>
+            <div id="info">
+                <p><?php echo $this->translate('Zure kontua aktibatu duzu iada. Orain Mintzatu sarearen parte zara. Jarraitu hurrengo esteka saioa hasteko.'); ?></p>
+                <p><a href="<?php echo $this->url(array(
+                    'controller' => 'kontuak',
+                    'action' => 'sartu',
+                ), '', true); ?>">Saioa Hasi</a></p>
+            </div>
+<?php 
+        else: ?>
+            <div id="warning">
+                <p><?php echo $this->translate('Zerbait txarto joan da, ziurtatu esteka ondo idatzia dagoela eta saiatu berriro.')?></p>
+            </div>
+<?php endif; 
+    endif; 
+endif;
+?>

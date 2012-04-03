@@ -1,0 +1,100 @@
+#mainInner.manual h2, #mainInner.manual h4, #mainInner.manual h4{
+            	background:none;
+            	text-align:left;
+            	color:#333;
+            	padding:0;
+}
+            #mainInner.manual h2{
+            	font-size:1.5em !important;
+            	margin:10px;
+            	border-bottom:1px solid;
+            }
+            #mainInner.manual h3{
+            	font-size:1.3em !important;
+            	
+            	border-bottom:1px dashed;
+            	margin:20px 10px 10px;
+				padding:0 10px;
+            }
+            #mainInner.manual h4{
+            	font-size:1.1em !important;
+            	margin:10px;
+            }
+            #mainInner.manual p{
+            	margin:10px;
+            	padding:10px;
+            	text-align:justify;
+            }
+            #mainInner{
+                        	-moz-border-radius-bottomleft:15px!important;
+				-moz-border-radius-bottomright:15px!important;
+                        	-webkit-border-bottom-left-radius:15px!important;
+				-webkit-border-bottom-right-radius:15px!important;
+}
+            
+            #main {
+				background:#FFFFFF none repeat scroll 0 0;
+				margin:0 auto;
+				width:1000px;
+				
+-moz-border-radius-bottomleft:15px;
+-moz-border-radius-bottomright:15px;
+                        	-webkit-border-bottom-left-radius:15px!important;
+				-webkit-border-bottom-right-radius:15px!important;
+background:#FFFFFF none repeat scroll 0 0;
+border:1px solid #000000;
+
+
+			}
+			#pieMainInner {display:none;}
+			.doccontents{
+				background:#DFDFFF none repeat scroll 0 0;
+				margin:0 10px;
+				padding:10px 10px 5px;
+			}
+			
+
+			            
+			 #mainInner.manual ul{
+			 	margin:0;
+				padding: 0 0 0 30px;
+				/*border:1px solid;*/
+			}
+			
+			#mainInner.manual ul li{}
+			#mainInner.manual ul li ul {
+
+			}
+			#mainInner.manual ul li img{
+				margin:0 5px 0 0;
+				padding:0;
+				vertical-align:middle;
+			}
+			#mainInner.manual p.desc{
+            	margin:0;
+            	padding:10px 10px 10px 23px;
+            	text-align:justify;
+            	font-style:italic;
+            }
+			#mainInner.manual img.screenshot{
+				border:1px solid #9F9F9F;
+				max-width:934px;
+				padding:2px;
+			}
+
+			#mainInner.manual img.screenshot.screenshotMINI{
+				max-width:400px;
+				margin:0 0 10px;
+			}
+			
+			.ulcontainer{
+				float:left;
+				width:940px;
+			}
+			
+            #mainInner.manual .ulcontainer.colLEFT{
+            	margin:0 25px 0 0;
+				width:505px;
+            }
+            
+            

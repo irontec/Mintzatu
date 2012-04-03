@@ -1,0 +1,3 @@
+ create database concept;
+ grant all privileges on concept.* to Uconcept@localhost identified by 'concept';
+ flush privileges;

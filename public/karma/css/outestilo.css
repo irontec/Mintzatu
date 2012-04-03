@@ -1,0 +1,168 @@
+
+body {
+    margin: 0px;
+    font-family: arial, tahoma, sans-serif;
+    padding: 0px;
+    background: #FFFFFF;
+    font-size: 14px;
+    color: <?php echo $color_base; ?>;
+    height:100%;
+}
+#karmaBar {
+    background:#000 url(../icons/bg_karmaBar.png) top left repeat-x;
+    color:#fff;
+    margin:0;
+    padding:10px 0px;
+    width:100%;
+    height:30px;
+    border-bottom:1px solid #000;   
+    padding-top:2px;
+    padding-bottom:0px;
+}
+#karmaBarOpts {
+    color: #CCCCCC;
+    float: right;
+    padding: 9px 20px 0 0;
+    text-align: right;
+    width: 77%;
+}
+#karmaBarLogo {
+    float: left;
+    height: 24px;
+    padding: 0 0 4px 10px;
+}
+a {
+    color: #666699;
+    text-decoration: none;
+}
+
+#karmaBarLogo a {
+    outline: medium none;
+}
+
+#karmaBarLogo img {
+    height: 24px;
+}
+
+a img {
+    border-width: 0;
+}
+
+#main {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #000000;
+    border-bottom-left-radius: 15px;
+    border-left: 1px solid #000000;
+    margin: 0 0 10px 250px;
+}
+
+#pieDeKarma {
+    line-height: 150%;
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+    width: 60%;
+}
+
+#main h1 {
+    background: url("../icons/bg_h1.png") repeat-x scroll left top transparent;
+    border-bottom: 1px solid #CCCCCC;
+    color: #FFFFFF;
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    height: 30px;
+    margin: 0;
+    padding: 20px 10px 4px 4px;
+    text-align: right;
+    text-decoration: none;
+}
+.Clearer {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    width: 100%;
+}
+#main {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #000000;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    margin: 0 auto 10px;
+    width: 66%;
+        text-align: center;
+            min-height: 250px;
+}
+
+img.logoc {
+    float: left;
+    margin: 15px;
+}
+/*
+fieldset{
+    border: medium none;
+}
+fieldset p{
+border:1px solid red;
+}
+
+fieldset p label{
+border:1px solid red;
+}
+fieldset p input{
+border:1px solid red;
+}
+*/
+
+fieldset{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E5E5E5;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    radius: 10px;
+    box-shadow: 0 2px 5px -1px rgba(200, 200, 200, 0.7);
+    margin-left: 8px;
+    padding: 0 5%;
+    width: 44%;
+    margin: 3% auto;
+    max-width: 260px;
+}
+fieldset p{
+line-height: 0.6;
+}
+fieldset p input{
+    border: 1px solid #E5E5E5;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    padding: 3px;
+    width: 100%;
+    
+}
+
+fieldset p label{
+    display: block;
+    text-align: left;
+    font-size: 1.1em;
+    width: 100%;
+    
+}
+
+fieldset p button{
+	background: transparent url(../icons/bg_tablon_optsTablon.png) 0px 0px repeat-x;
+    border: 1px solid #E5E5E5;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    padding: 3px;
+    width: 60%;
+    border: 1px solid #E5E5E5;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    radius: 5px;
+    cursor:pointer;
+    color:#ffffff;
+    font-weight:bold;
+}

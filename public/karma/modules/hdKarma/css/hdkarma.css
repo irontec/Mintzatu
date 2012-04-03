@@ -1,0 +1,76 @@
+.fileUploaderBtn {
+	
+}
+
+#hdKarma_carga {
+	width:800px;
+	min-height:400px;
+	overflow:auto;
+	font-size:1em;
+	font-weight:normal;
+}
+
+
+#hd_list {
+	width:200px;
+	min-height:370px;
+	height:350px;
+	overflow:auto;
+	margin:0;
+	padding:0;	
+}
+
+#hd_content {
+	width:580px;
+	min-height:370px;
+	height:350px;
+	overflow:auto;
+	float:right;
+	margin:0;
+	padding:0;
+}
+#hd_options {
+	clear:both;
+	min-height:30px;
+	width:800px;
+	text-align:center;
+}
+
+
+#hd_options ul {
+	margin:0px 50px 0 0;
+	list-style:none;
+	float:left;
+}
+
+#hd_options ul li{
+	float:left;
+	margin:0 10px 0 0;
+	padding:5px 10px;
+}
+
+#hd_options ul li.karmaBarOption {
+	cursor:pointer;	
+	background: transparent url(./icons/bg_tablon_optsTablon.png)  0px 0px repeat-x;
+	padding:3px 8px;
+	border:1px solid #ccc;
+	-moz-border-radius:15px;
+}
+
+
+#hd_options ul li.karmaBarOption:hover {
+	background: transparent url(./icons/bg_tablon_optsTablon_hover.png)  0px 0px repeat-x;
+}
+
+#hd_options ul li.karmaBarOption img {
+	vertical-align:middle;
+}	
+#hd_options ul li.karmaBarOption a,#hd_options ul li.karmaBarOption a:hover,#hd_options ul li.karmaBarOption a:visited,#hd_options ul li.karmaBarOption a:link {
+	text-decoration:none;
+	color:#ccc;
+}
+
+.folderhidden {
+	display:none;
+	margin-top:-10px;
+}

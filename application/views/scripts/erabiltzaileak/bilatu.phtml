@@ -1,0 +1,36 @@
+<h1><?php echo $this->translate('Pertsonen Bilaketa'); ?></h1>
+<form id="lagunBilaketa" action="<?php echo $this->url(array(
+    'controller' => 'erabiltzaileak',
+    'action' => 'bilatu'
+),'',true);?>" method="get"><label for="pertsona"></label><input type="text" name="pertsona" class="" id="pertsona" value="<?php echo $this->bilaketa; ?>">
+</form>
+<?php if ($this->result) : ?>
+<div class="list-box">
+    <h2>Emaitzak</h2>
+    <ul>
+        <?php foreach ($this->result as $pertsona) : ?>
+        <li>
+            <ul>
+            <?php if ($pertsona->getIrudiIzena()) : ?>
+            <li class="pic"><?php echo $this->ErabiltzaileIrudia($pertsona->getErabiltzailea(),'txikia', true); ?></li>
+            <?php else : ?>
+            <li class="pic"><a href="<?php echo $this->url(array(
+                'controller' => 'erabiltzaileak',
+                'action' => 'profila',
+                'erabiltzailea' => $pertsona->getErabiltzailea()
+            ),'', true); ?>"></a></li>
+            <?php endif;?>
+            <li class="what"><?php echo '<span id="izena"><a href="'.$this->url(array(
+                'controller' => 'erabiltzaileak',
+                'action' => 'profila',
+                'erabiltzailea' => $pertsona->getErabiltzailea()
+            ),'', true).'">'.utf8_encode($pertsona->getIzena().' '.$pertsona->getAbizenak()).'</a></span>'; ?></li>
+            <li class="when"><?php echo $this->LagunBotoiak(false, $pertsona->getIdErabiltzaile()); ?></li>
+            </ul>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php else : ?>
+<p><?php echo $this->translate('Ez da emaitzik lortu zure bilaketarako.')?></p>
+<?php endif; ?>
